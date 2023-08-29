@@ -1,0 +1,1 @@
+Greetings to our firs GenAI step 
