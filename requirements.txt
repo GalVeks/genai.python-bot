@@ -1,5 +1,10 @@
 botbuilder-core>=4.7.0
 aiohttp
+SQLAlchemy==1.4.48
+langchain 
+openai 
+python-dotenv 
+psycopg2
+psycopg2-binary 
 langchain_experimental
-
 
