@@ -4,3 +4,6 @@ SQLAlchemy==1.4.48
 ipywidgets 
 langchain 
 openai
+python-dotenv 
+psycopg2
+psycopg2-binary
