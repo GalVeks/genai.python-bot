@@ -7,5 +7,6 @@ openai
 python-dotenv 
 psycopg2
 psycopg2-binary
-
-langchain_experimental
+chromadb
+pyyaml
+sentence-transformers
