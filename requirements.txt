@@ -2,4 +2,5 @@ botbuilder-core>=4.7.0
 aiohttp
 SQLAlchemy==1.4.48
 ipywidgets 
-
+langchain 
+openai
