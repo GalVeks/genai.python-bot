@@ -18,8 +18,6 @@ from botbuilder.schema import Activity, ActivityTypes
 from bot import MyBot
 from config import DefaultConfig
 
-from flaskapp import app
-
 CONFIG = DefaultConfig()
 
 # Create adapter.
@@ -82,12 +80,11 @@ async def messages(req: Request) -> Response:
         raise exception
 
 
-#app = web.Application(middlewares=[aiohttp_error_middleware])
+app = web.Application(middlewares=[aiohttp_error_middleware])
 app.router.add_post("/api/messages", messages)
 
 if __name__ == "__main__":
     try:
-        #web.run_app(app, host="localhost", port=CONFIG.PORT)
-        app.run(host='0.0.0.0',port=CONFIG.PORT,debug=True)
+        web.run_app(app, host="localhost", port=CONFIG.PORT)
     except Exception as error:
         raise error
