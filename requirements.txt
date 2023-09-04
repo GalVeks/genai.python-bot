@@ -7,4 +7,4 @@ python-dotenv
 psycopg2
 psycopg2-binary 
 langchain_experimental
-
+sentence-transformers
