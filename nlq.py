@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import psycopg2
 
 from langchain_experimental.sql import SQLDatabaseChain
@@ -11,20 +11,20 @@ from langchain_experimental.sql.base import SQLDatabaseSequentialChain
 from sqlalchemy.exc import ProgrammingError, DataError
 
 
-load_dotenv() 
+#load_dotenv()
 # Avoid huggingface/tokenizers parallelism error
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # Load environment variables from .env file
-load_dotenv()
+#load_dotenv()
 
 
 def answer_my_q_ed(question):
     answer = ''
-    RDS_HOST = os.getenv("RDS_ENDPOINT")
-    RDS_PORT = os.getenv("RDS_PORT")
-    RDS_DATABASE = os.getenv("RDS_DB_NAME")
-    RDS_USERNAME = os.getenv("RDS_USERNAME")
-    RDS_PASSWORD = os.getenv("RDS_PASSWORD")
+    RDS_HOST = 'postgre-generativeai-sandbox.cphbkxf9hicq.us-east-1.rds.amazonaws.com' #os.getenv("RDS_ENDPOINT")
+    RDS_PORT = '5432' #os.getenv("RDS_PORT")
+    RDS_DATABASE = 'postgres' #os.getenv("RDS_DB_NAME")
+    RDS_USERNAME = 'postgres' #os.getenv("RDS_USERNAME")
+    RDS_PASSWORD = 'postgres' #os.getenv("RDS_PASSWORD")
 
     RDS_ENDPOINT = f"postgresql://{RDS_USERNAME}:{RDS_PASSWORD}@{RDS_HOST}:{RDS_PORT}/{RDS_DATABASE}" + "?options=-c%20search_path%3Dmoma_generative_ai"
 

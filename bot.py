@@ -7,7 +7,6 @@ from nlq import answer_my_q_ed
 
 
 class MyBot(ActivityHandler):
-    # See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
 
     async def on_message_activity(self, turn_context: TurnContext):
         await turn_context.send_activity(answer_my_q_ed(turn_context.activity.text))

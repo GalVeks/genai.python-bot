@@ -22,7 +22,8 @@ CONFIG = DefaultConfig()
 
 # Create adapter.
 # See https://aka.ms/about-bot-adapter to learn more about how bots work.
-SETTINGS = BotFrameworkAdapterSettings(CONFIG.APP_ID, CONFIG.APP_PASSWORD)
+#SETTINGS = BotFrameworkAdapterSettings(CONFIG.APP_ID, CONFIG.APP_PASSWORD)
+SETTINGS = BotFrameworkAdapterSettings("d26c8e02-e02d-4901-9b00-435f84d6b4e2", "yr68Q~8YsT_PYvADc3t.N4O7DFpqW-A~-xm7Vb-2")
 ADAPTER = BotFrameworkAdapter(SETTINGS)
 
 
@@ -89,6 +90,7 @@ def init_func(argv):
 if __name__ == "__main__":
     APP = init_func(None)
     try:
-        web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
+        #web.run_app(APP, host="0.0.0.0", port=CONFIG.PORT)
+        web.run_app(APP, host="0.0.0.0", port=3978)
     except Exception as error:
         raise error
