@@ -19,10 +19,7 @@ load_dotenv()
 
 
 def answer_my_q_ed(question):
-    #GET PARAMETERS FOR RDS
     answer = ''
-    # SQLAlchemy 2.0 reference: https://pypi.org/project/sqlalchemy-RDS/
-    # Endpoint format: RDS+psycopg2://username@host.amazonaws.com:5439/database
     RDS_HOST = os.getenv("RDS_ENDPOINT")
     RDS_PORT = os.getenv("RDS_PORT")
     RDS_DATABASE = os.getenv("RDS_DB_NAME")
@@ -69,24 +66,7 @@ def answer_my_q_ed(question):
     #LangChain OpenAI
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, verbose=True)
 
-
-
     #####################################
-
-    # A few sample questions
-    QUESTION_01 = "How many artists are there?"
-    QUESTION_02 = "How many artworks are there?"
-    QUESTION_03 = "How many rows are in the artists table?"
-    QUESTION_04 = "How many rows are in the artworks table?"
-    QUESTION_05 = "How many artists are there whose nationality is French?"
-    QUESTION_06 = "How many artworks were created by artists whose nationality is Spanish?"
-    QUESTION_07 = "How many artist names start with 'M'?"
-    QUESTION_08 = "What nationality produced the most number of artworks?"
-    QUESTION_09 = "How many artworks are by Claude Monet?"
-    QUESTION_10 = "What is the oldest artwork in the collection?"
-
-
-
     db = SQLDatabase.from_uri(RDS_ENDPOINT)
 
     db_chain = SQLDatabaseSequentialChain.from_llm(
@@ -100,7 +80,6 @@ def answer_my_q_ed(question):
     try:
         answer = db_chain(question + instructions)
     except (ProgrammingError, ValueError, DataError) as exc:
-        #print(f"\n\n{exc}")
         answer = f"\n\n{exc}"
     
     return answer["intermediate_steps"][5]

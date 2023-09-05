@@ -4,7 +4,7 @@
 from botbuilder.core import ActivityHandler, TurnContext
 from botbuilder.schema import ChannelAccount
 from nlq import answer_my_q_ed
-import os
+
 
 class MyBot(ActivityHandler):
     # See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
@@ -19,4 +19,4 @@ class MyBot(ActivityHandler):
     ):
         for member_added in members_added:
             if member_added.id != turn_context.activity.recipient.id:
-                await turn_context.send_activity(os.environ.get("MicrosoftAppId", "d26c8e02-e02d-4901-9b00-435f84d6b4e2"))
+                await turn_context.send_activity("Hello and welcome!")
